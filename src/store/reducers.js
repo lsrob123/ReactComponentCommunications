@@ -1,4 +1,4 @@
-import * as actions from './actions';
+/*import * as actions from './actions';
 
 const previousState = {
     someText: "abc"
@@ -18,5 +18,5 @@ function rootReducer(state = previousState, action) {
 };
 
 
-export default rootReducer;
+export default rootReducer;*/
 

@@ -3,9 +3,13 @@ export const actionTypes = {
 };
 
 // eg. store.dispatch(getUpdateSomeTextAction({ someText: "abc" }))
-export function getUpdateSomeTextAction(payload) {
+export function updateSomeTextAction(payload) {
     return {
         type: actionTypes.UPDATE_SOME_TEXT,
         payload: payload
     };
 }
+
+export const updateSomeText = ({
+    payload
+}) => updateSomeTextAction(payload);

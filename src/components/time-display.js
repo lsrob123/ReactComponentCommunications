@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../store/actions';
+import { updateSomeText, updateSomeTextAction } from '../store/actions';
 
 export class TimeDisplay extends React.Component {
     constructor(props) {
@@ -19,7 +19,7 @@ export class TimeDisplay extends React.Component {
     }
 
     refreshStore(e) {
-        this.props.updateSomeText({ someText: `Update from TimeDisplay to store: ${this.state.time}` });
+        this.props.updateSomeTextAction({ someText: `Update from TimeDisplay to store: ${this.state.time}` });
     }
 
     render() {
@@ -33,14 +33,7 @@ export class TimeDisplay extends React.Component {
     }
 }
 
-// return props with methods
-function mapDispatchToProps(dispatch) {
-    return {
-        updateSomeText: payload => dispatch(actions.getUpdateSomeTextAction(payload))
-    }
-}
-
-const TimeDisplayInstance = connect(null, mapDispatchToProps)(TimeDisplay);
+const TimeDisplayInstance = connect(null, { updateSomeTextAction })(TimeDisplay);
 
 export default TimeDisplayInstance;
 

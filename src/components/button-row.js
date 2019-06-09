@@ -35,7 +35,7 @@ class ButtonRow extends React.Component {
 // return props with properties
 function mapStateToProps(state) {
     return {
-        someText: state.someText,
+        someText: state.someReducer.someText,
     }
 }
 
