@@ -18,7 +18,7 @@ export class TimeDisplay extends React.Component {
     render() {
         return (
             <div>
-                Time: {this.props.something} - {`${this.state.time}`}
+                Time: {this.props.something} - local {`${this.state.time} - ancester ${this.props.updatedTime}`}
                 <button onClick={this.refreshLocal}>Refresh - Local</button>
             </div>
         );

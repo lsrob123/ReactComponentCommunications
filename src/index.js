@@ -1,27 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
-import { TimeDisplay } from './components/time-display';
-import { ButtonRow } from './components/button-row';
-import { SomePage1 } from './pages/some-page1';
+import { HashRouter, Link, Route } from 'react-router-dom';
 import { Home } from './pages/home';
+import { SomePage1 } from './pages/some-page1';
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            time: new Date()
+        };
+
+        this.updateTime = this.updateTime.bind(this);
+    }
+
+    updateTime() {
+        this.setState({ time: new Date() })
+    }
+
     render() {
         return (
             <div>
-                <h1>Hello world -- 2</h1>
-                <TimeDisplay something="haha"></TimeDisplay>
-                <ButtonRow text="Refresh - Remote"></ButtonRow>
+                <h1>App 1 Area</h1>
+                <p>
+                    {this.state.time.toString()}
+                </p>
 
                 <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
                     <li>
                         <Link to="/some">Some</Link>
                     </li>
                 </ul>
 
-                {/*<Route path="/" component={Home} />*/}
-                <Route path="/some" component={SomePage1} />
+                <Route path="/" render={props=><Home updatedTime={this.state.time} />} />
+                <Route path="/some" render={props => <SomePage1 setTime={this.updateTime} ancesterTime={this.state.time} />} />
             </div>
         );
     }
