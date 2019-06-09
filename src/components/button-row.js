@@ -33,7 +33,7 @@ class ButtonRow extends React.Component {
 }
 
 // return props with properties
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     return {
         someText: state.someText,
     }

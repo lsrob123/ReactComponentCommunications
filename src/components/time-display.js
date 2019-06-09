@@ -34,7 +34,7 @@ export class TimeDisplay extends React.Component {
 }
 
 // return props with methods
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
     return {
         updateSomeText: payload => dispatch(actions.getUpdateSomeTextAction(payload))
     }
