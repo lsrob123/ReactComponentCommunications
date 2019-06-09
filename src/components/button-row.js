@@ -7,25 +7,32 @@ class ButtonRow extends React.Component {
         super(props);
 
         this.state = {
+            localSomeText: null
         };
     }
 
-    componentDidMount() {
-
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.someText !== this.state.localSomeText) {
+            this.setState({ localSomeText: nextProps.someText });
+        }
     }
+
 
     render() {
         return (
             <div>
                 <h4>Button Row</h4>
                 <button>{this.props.text}</button>
-                <h2>Some Text in Store</h2>
+                <h2>Some Text in store</h2>
                 <div>{this.props.someText}</div>
+                <h2>Some Text in local state</h2>
+                <div>{this.state.localSomeText}</div>
             </div>
         );
     }
 }
 
+// return props with properties
 function mapStateToProps(state) {
     return {
         someText: state.someText,

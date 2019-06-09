@@ -26,13 +26,14 @@ export class TimeDisplay extends React.Component {
         return (
             <div>
                 <div>Time: {this.props.something} - local {`${this.state.time} - ancester ${this.props.updatedTime}`}</div>
-                <button onClick={this.refreshLocal}>Refresh - Local</button>
+                <button onClick={this.refreshLocal}>Refresh - Local</button> &nbsp;
                 <button onClick={this.refreshStore}>Refresh - Store</button>
             </div>
         );
     }
 }
 
+// return props with methods
 function mapDispatchToProps(dispatch) {
     return {
         updateSomeText: payload => dispatch(actions.getUpdateSomeTextAction(payload))

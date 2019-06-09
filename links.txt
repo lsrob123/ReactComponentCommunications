@@ -10,3 +10,11 @@ https://www.sitepoint.com/react-router-v4-complete-guide/
 
 
 https://www.valentinog.com/blog/redux/
+
+// Re-render when new props received
+componentWillReceiveProps(nextProps) {
+  // You don't have to do this check first, but it can help prevent an unneeded render
+  if (nextProps.startTime !== this.state.startTime) {
+    this.setState({ startTime: nextProps.startTime });
+  }
+}
