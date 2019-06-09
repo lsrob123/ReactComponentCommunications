@@ -7,3 +7,6 @@ https://www.freecodecamp.org/news/how-to-write-your-first-react-js-component-d72
 
 https://blog.pshrmn.com/simple-react-router-v4-tutorial/
 https://www.sitepoint.com/react-router-v4-complete-guide/
+
+
+https://www.valentinog.com/blog/redux/

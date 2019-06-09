@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter, Link, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { Home } from './pages/home';
 import { SomePage1 } from './pages/some-page1';
+import store from './store/store';
 
 class App extends React.Component {
     constructor(props) {
@@ -36,7 +38,7 @@ class App extends React.Component {
                     </li>
                 </ul>
 
-                <Route path="/" render={props=><Home updatedTime={this.state.time} />} />
+                <Route path="/" render={props => <Home updatedTime={this.state.time} />} />
                 <Route path="/some" render={props => <SomePage1 setTime={this.updateTime} ancesterTime={this.state.time} />} />
             </div>
         );
@@ -44,7 +46,9 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-    <HashRouter>
-        <App />
-    </HashRouter>
+    <Provider store={store}>
+        <HashRouter>
+            <App />
+        </HashRouter>
+    </Provider>
     , document.getElementById('root'));
